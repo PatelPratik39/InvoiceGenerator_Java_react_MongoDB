@@ -3,6 +3,8 @@ import Logo from "../../components/Logo.jsx";
 import './LandingPage.css';
 // import {AppContext, initialInvoiceData} from "../../context/AppContext.jsx";
 import {assets} from "../../assets/assets.js";
+import { Linkedin,  Github, Mail, User } from 'lucide-react';
+
 
 const LandingPage = () => {
    
@@ -254,10 +256,39 @@ const LandingPage = () => {
                   </p>
 
                   <p className="mt-2">
-                    <a href="#" className="text-white-50 me-2"><i className="bi bi-twitter-x"></i></a>
-                    <a href="#" className="text-white-50 me-2"><i className="bi bi-facebook"></i></a>
-                    <a href="#" className="text-white-50"><i className="bi bi-linkedin"></i></a>
-                  </p>
+                      <a
+                        href="https://www.linkedin.com/in/pratikpatel6/"
+                        className="text-white-50 me-3"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        <Linkedin />
+                      </a>
+                      <a
+                       href="mailto:ptl.pratik717@gmail.com"
+                        className="text-white-50 me-3"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        <Mail />
+                      </a>
+                      <a
+                        href="https://github.com/PatelPratik39"
+                        className="text-white-50 me-3"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        <Github />
+                      </a>
+                      <a
+                        href="https://pratikpatel39.com/"
+                        className="text-white-50"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        <User />
+                      </a>
+                    </p>
                 </div>
             </footer>
 

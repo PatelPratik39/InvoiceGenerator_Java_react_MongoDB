@@ -26,9 +26,9 @@ const Menubar = () => {
                 </Link>
               </li>
               <li className='nav-item'>
-                <button className='nav-link fw-medium'to="/">
+                <Link className='nav-link fw-medium'to="/generate">
                   Generate
-                </button>
+                </Link>
               </li>
               <li className='nav-item'>
                 <button className='btn btn-primary rounded-pill px-4'to="/dashboard">
