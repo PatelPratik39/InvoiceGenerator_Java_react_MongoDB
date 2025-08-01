@@ -7,20 +7,21 @@ const MainPage = () => {
 
   const [isEditingTitle, setIsEditingTitle] = useState(false);
 
-  const{invoiceTitle, setInvoiceTitle} = useContext(AppContext);
-  
-  const handleTitleChange = (e) => {
-      const newTitle = e.target.value;
-      setInvoiceTitle(newTitle);
-  }
+  const { invoiceTitle, setInvoiceTitle } = useContext(AppContext);
 
   const handleTitleEdit = () => {
-    setInvoiceTitle(true)
-  }
-
+    setInvoiceTitle("");
+    setIsEditingTitle(true);
+  };
+  
+  const handleTitleChange = (e) => {
+    setInvoiceTitle(e.target.value);
+  };
+  
   const handleTitleBlur = () => {
-    
-  }
+    setIsEditingTitle(false);
+  };
+  
 
   return (
     <div>
@@ -30,11 +31,16 @@ const MainPage = () => {
           <div className="bg-white border rounded shadow-sm p-3 mb-4">
             <div className='d-flex align-items-center'>
                 {isEditingTitle ? (
-                    <input type='text' className='form-control me-2' autoFocus/>
+                    <input type='text' className='form-control me-2' autoFocus onBlur={handleTitleBlur} onChange={handleTitleChange} value={invoiceTitle} onKeyDown={(e) => {
+                      if (e.key === "Enter") {
+                        e.preventDefault();
+                        handleTitleBlur();
+                      }
+                    }}/>
                 ) : (
                   <>
                     <h5 className='mb-0 me-2'>{invoiceTitle}</h5>
-                    <button className='btn btn-sm p-0 border-0 bg-transparent'>
+                    <button className='btn btn-sm p-0 border-0 bg-transparent' onClick={handleTitleEdit}>
                       <Pencil className='text-primary' size={20}/>
                     </button>
                   </>
