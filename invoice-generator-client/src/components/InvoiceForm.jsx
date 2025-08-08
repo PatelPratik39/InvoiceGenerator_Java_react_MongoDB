@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import React, { useContext, useEffect } from 'react'
 import {assets} from '../assets/assets.js';
 import { Trash2 } from 'lucide-react';
 import { AppContext } from '../context/AppContext.jsx';
@@ -76,6 +76,16 @@ const InvoiceForm = () => {
             reader.readAsDataURL(file);
         }
     }
+
+    useEffect(() => {
+        if(!invoiceData.invoice.number) {
+            const randomInvoiceNumber = `INV-${Math.floor(100000 + Math.random() * 900000)}`;
+            setInvoiceData((prev) => ({
+                ...prev,
+                invoice: {...prev.invoice, number:randomInvoiceNumber}
+            }))
+        }
+    },[])
 
   return (
     <>
@@ -166,7 +176,7 @@ const InvoiceForm = () => {
                     <input type="text" 
                     disabled 
                     className="form-control" 
-                    placeholder='Invoice Number' 
+                     
                     id='invoiceNumber'
                     value={invoiceData.invoice.number} 
                     onChange={(e) => handleChange("invoice", "number", e.target.value)}
