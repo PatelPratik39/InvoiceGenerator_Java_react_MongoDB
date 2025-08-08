@@ -85,7 +85,12 @@ const InvoiceForm = () => {
                 invoice: {...prev.invoice, number:randomInvoiceNumber}
             }))
         }
-    },[])
+    },[invoiceData.invoice.number, setInvoiceData])
+
+    // const handleSubmit = () => {
+    //     console.log(invoiceData);
+        
+    // }
 
   return (
     <>
@@ -98,12 +103,12 @@ const InvoiceForm = () => {
                     <img src={invoiceData.logo ? invoiceData.logo : assets.upload_area} alt='upload' width={98}/>
                 </label>
                 <input type="file" 
-                name='logo' 
-                id="image" 
-                hidden 
-                className='form-control' a
-                ccept='image/*' 
-                onChange={handleLogoUpload}
+                    name='logo' 
+                    id="image" 
+                    hidden 
+                    className='form-control'
+                    accept='image/*' 
+                    onChange={handleLogoUpload}
                 />
             </div>
         </div>
@@ -327,6 +332,7 @@ const InvoiceForm = () => {
                 />
             </div>
         </div>
+        {/* <button type='submit' className='btn btn-primary' onClick={handleSubmit}>Submit</button> */}
     </div>
     </>
   )
